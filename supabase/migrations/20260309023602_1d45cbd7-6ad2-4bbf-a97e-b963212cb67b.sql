@@ -1,0 +1,1 @@
+ALTER TABLE public.messages ALTER COLUMN conversation_id TYPE text;

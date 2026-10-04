@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Neutral: #FFFFFF */
+    --background: 0 0% 100%;
+    /* Secondary charcoal #303030 for crisp readable foreground */
+    --foreground: 0 0% 19%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 19%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 19%;
+
+    /* Primary: Telegram Sky #229ED9 -> hsl(199 73% 49%) */
+    --primary: 199 73% 49%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 199 82% 58%;
+
+    /* Secondary: #303030 -> hsl(0 0% 19%) */
+    --secondary: 0 0% 19%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 200 20% 96%;
+    --muted-foreground: 0 0% 42%;
+
+    /* Accent: Telegram Sky #229ED9 */
+    --accent: 199 73% 49%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 18% 90%;
+    --input: 200 18% 90%;
+    --ring: 199 73% 49%;
+
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #229ED9, hsl(199 82% 58%));
+    --gradient-accent: linear-gradient(135deg, #303030, hsl(0 0% 28%));
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100% / 0) 0%, rgba(48, 48, 48, 0.85) 100%);
+
+    /* Shadows */
+    --shadow-card: 0 4px 20px hsl(199 73% 49% / 0.1);
+    --shadow-elevated: 0 8px 30px hsl(199 73% 49% / 0.16);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* Dark mode anchored by Secondary #303030 & Neutral #FFFFFF */
+    --background: 0 0% 12%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 16%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 16%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Primary: Telegram Sky #229ED9 */
+    --primary: 199 73% 49%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 199 82% 60%;
+
+    /* Secondary: #303030 */
+    --secondary: 0 0% 19%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 22%;
+    --muted-foreground: 0 0% 68%;
+
+    --accent: 199 73% 49%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 24%;
+    --input: 0 0% 24%;
+    --ring: 199 73% 49%;
+
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.35);
+    --shadow-elevated: 0 8px 30px hsl(0 0% 0% / 0.45);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    height: -webkit-fill-available;
+    overscroll-behavior-y: none;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  [role="button"] {
+    touch-action: manipulation;
+  }
+}
+
+/* Dynamic viewport height overrides for iOS Safari & Android Chrome */
+@supports (height: 100dvh) {
+  .h-screen {
+    height: 100dvh;
+  }
+  .min-h-screen {
+    min-height: 100dvh;
+  }
+}
+
+/* Safe area utilities for iOS Notch / Dynamic Island & Home Indicator */
+.pt-safe {
+  padding-top: max(env(safe-area-inset-top, 0px), 0px);
+}
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 0px);
+}
+.pl-safe {
+  padding-left: max(env(safe-area-inset-left, 0px), 0px);
+}
+.pr-safe {
+  padding-right: max(env(safe-area-inset-right, 0px), 0px);
+}
+.mt-safe {
+  margin-top: env(safe-area-inset-top, 0px);
+}
+.mb-safe {
+  margin-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Hide scrollbar for vertical scroll */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

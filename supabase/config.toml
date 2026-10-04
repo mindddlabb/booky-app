@@ -1,0 +1,16 @@
+project_id = "ysmlknvrzcjpxtknazgd"
+
+[functions.send-notification]
+verify_jwt = false
+
+[functions.notify-booking-confirmed]
+verify_jwt = false
+
+[functions.check-bookings-status]
+verify_jwt = false
+
+[functions.search-external-apartments]
+verify_jwt = false
+
+[functions.checkin-reminder]
+verify_jwt = false
